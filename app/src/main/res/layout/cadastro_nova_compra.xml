@@ -18,6 +18,7 @@
         android:layout_margin="10dp"/>
 
     <EditText
+        android:id="@+id/local"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
@@ -34,6 +35,7 @@
         android:text="Tipo de compra"/>
 
     <EditText
+        android:id="@+id/segmento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
@@ -49,15 +51,14 @@
         android:layout_marginBottom="10dp"
         android:text="Data"/>
 
-    <EditText
-        android:id="@+id/editText"
+    <TextView
+        android:id="@+id/data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="date"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:hint="data"/>
+        android:hint="dd/mm/aa"/>
+
     </LinearLayout>
 
     <LinearLayout

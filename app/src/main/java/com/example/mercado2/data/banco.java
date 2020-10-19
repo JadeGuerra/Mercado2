@@ -3,18 +3,21 @@ package com.example.mercado2.data;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.support.annotation.Nullable;
+
+
+
 
 public class banco extends SQLiteOpenHelper{
 
-    public banco(@Nullable Context context,
-                 @Nullable String name,
-                 @Nullable SQLiteDatabase.CursorFactory factory,
-                 int version) {
+    public static final String LOG_TAG = banco.class.getSimpleName();
+    private static final String DATABASE_NAME = "banco.db";
+    private static final int DATABASE_VERSION = 1;
 
-        super(context, name, factory, version);
-
+    public banco(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
+
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -34,13 +37,13 @@ public class banco extends SQLiteOpenHelper{
                 + mercadoContract.itemEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + mercadoContract.itemEntry.COLUMN_ITEM + " TEXT NOT NULL, "
                 + mercadoContract.itemEntry.COLUMN_QUANTIDADE + " INTEGER, "
-                + mercadoContract.itemEntry.COLUMN_VALOR_TOTAL + " INTEGER " +")";
+                + mercadoContract.itemEntry.COLUMN_VALOR_TOTAL + " INTEGER, "
+                + mercadoContract.itemEntry.COLUMN_MERCADO + " INTEGER NOT NULL, "
+                + " FOREIGN KEY (" + mercadoContract.itemEntry.COLUMN_MERCADO + " ) REFERENCES "
+                + mercadoContract.compraEntry.TABLE_NAME +"("
+                + mercadoContract.itemEntry.COLUMN_MERCADO + ") "+")";
 
-        db.execSQL("CREATE TABLE ITENS_TABLE  " +
-                   "(ID INTEGER PRIMARY KEY AUTOINCREMENT, "+
-                   " LOCAL TEXT, "+
-                   "SEGMENTO TEXT,"+
-                   " DATA TEXT)");
+        db.execSQL(CREATE_ITENS_TABLE);
     }
 
     @Override

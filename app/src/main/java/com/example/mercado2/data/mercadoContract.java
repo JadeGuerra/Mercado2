@@ -2,9 +2,11 @@ package com.example.mercado2.data;
 
 import android.provider.BaseColumns;
 
+import com.example.mercado2.CadastroNovaCompra;
+
 public final class mercadoContract {
 
-    private mercadoContract(){}
+    public mercadoContract(CadastroNovaCompra cadastroNovaCompra){}
 
     public static final class compraEntry implements BaseColumns{
 
