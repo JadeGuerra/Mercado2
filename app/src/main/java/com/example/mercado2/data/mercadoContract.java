@@ -17,9 +17,13 @@ public final class mercadoContract {
     }
 
     public static final class itemEntry implements BaseColumns{
-        public final static String TABLE_NAME = "intensTable";
+        public final static String TABLE_NAME = "itensTable";
         public final static String _ID = BaseColumns._ID;
-        public final static String COLUMN_MERCADO = "mercado_id";
+        public final static String COLUMN_MERCADO = "mercadoId";
+        public final static String COLUMN_ITEM = "item";
+        public final static String COLUMN_QUANTIDADE = "quantidade";
+        public final static String COLUMN_VALOR_UNITARIO = "valorUnitario";
+        public final static String COLUMN_VALOR_TOTAL = "valorTotal";
 
     }
 

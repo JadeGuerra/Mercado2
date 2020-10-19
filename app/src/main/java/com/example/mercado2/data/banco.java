@@ -21,13 +21,20 @@ public class banco extends SQLiteOpenHelper{
 
         String CREATE_COMPRA_TABLE = "CREATE TABLE " +
                 mercadoContract.compraEntry.TABLE_NAME + "("
-                + mercadoContract.compraEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT "
-                + mercadoContract.compraEntry.COMLUMN_LOCAL + " TEXT NOT NULL"
-                + mercadoContract.compraEntry.COLUMN_SEGMENTO + " TEXT "
-                + mercadoContract.compraEntry.DATA + " TEXT NOT NULL "
+                + mercadoContract.compraEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + mercadoContract.compraEntry.COMLUMN_LOCAL + " TEXT NOT NULL,"
+                + mercadoContract.compraEntry.COLUMN_SEGMENTO + " TEXT, "
+                + mercadoContract.compraEntry.DATA + " TEXT NOT NULL, "
                 + mercadoContract.compraEntry.COLUMN_TOTAL + " INTEGER DEFAULT 0 " + ")";
 
         db.execSQL(CREATE_COMPRA_TABLE);
+
+        String CREATE_ITENS_TABLE = "CREATE TABLE " +
+                mercadoContract.itemEntry.TABLE_NAME + "("
+                + mercadoContract.itemEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + mercadoContract.itemEntry.COLUMN_ITEM + " TEXT NOT NULL, "
+                + mercadoContract.itemEntry.COLUMN_QUANTIDADE + " INTEGER, "
+                + mercadoContract.itemEntry.COLUMN_VALOR_TOTAL + " INTEGER " +")";
 
         db.execSQL("CREATE TABLE ITENS_TABLE  " +
                    "(ID INTEGER PRIMARY KEY AUTOINCREMENT, "+
